@@ -7,12 +7,14 @@
 //
 
 import RxCocoa
+import RxSwift
+import RxFlow
 
 protocol MainViewModelContract {
     func  fetchCharacter() -> Driver<[Character]>
 }
 
-class MainViewModel: MainViewModelContract {
+class MainViewModel: Stepper, MainViewModelContract {
     let characterService : CharacterServiceContract
     
     init(with characterService: CharacterServiceContract) {
@@ -20,6 +22,6 @@ class MainViewModel: MainViewModelContract {
     }
     
     func fetchCharacter() -> Driver<[Character]> {
-        return self.characterService.fetchCharacter().asDriver(onErrorJustReturn: [])
+        return characterService.fetchCharacter().asDriver(onErrorJustReturn: [])
     }
 }

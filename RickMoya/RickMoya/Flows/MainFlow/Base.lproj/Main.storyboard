@@ -38,10 +38,16 @@
                                         </label>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="fZR-aZ-oTC">
                                             <rect key="frame" x="16" y="10" width="72" height="72"/>
+                                            <color key="backgroundColor" red="0.023529411760000001" green="0.47450980390000003" blue="0.58823529409999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="72" id="DXK-7t-F3d"/>
                                                 <constraint firstAttribute="height" constant="72" id="p75-nO-1oD"/>
                                             </constraints>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                    <integer key="value" value="60"/>
+                                                </userDefinedRuntimeAttribute>
+                                            </userDefinedRuntimeAttributes>
                                         </imageView>
                                     </subviews>
                                     <constraints>

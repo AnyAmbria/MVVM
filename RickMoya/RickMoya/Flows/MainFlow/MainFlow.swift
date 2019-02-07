@@ -35,6 +35,6 @@ class MainFlow: Flow {
         
         rootViewController.pushViewController(viewController, animated: true)
         
-        return .one(flowItem: NextFlowItem(nextPresentable: viewController, nextStepper: viewModel as! Stepper))
+        return .one(flowItem: NextFlowItem(nextPresentable: viewController, nextStepper: viewModel))
     }
 }
