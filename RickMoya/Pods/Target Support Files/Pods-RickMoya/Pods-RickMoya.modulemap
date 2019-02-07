@@ -1,0 +1,6 @@
+framework module Pods_RickMoya {
+  umbrella header "Pods-RickMoya-umbrella.h"
+
+  export *
+  module * { export * }
+}

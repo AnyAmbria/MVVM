@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="VdN-h4-TG5">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Main View Controller-->
+        <scene sceneID="P32-SH-3y9">
+            <objects>
+                <tableViewController id="VdN-h4-TG5" customClass="MainViewController" customModule="RickMoya" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="WIE-hw-vP6">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CharacterCell" rowHeight="104" id="nsa-x8-opA" customClass="CharacterCell" customModule="RickMoya" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="375" height="104"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="nsa-x8-opA" id="jLL-LN-3ki">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="103.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nome do Presonagem" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2l5-MW-bbi">
+                                            <rect key="frame" x="104" y="10" width="207" height="24"/>
+                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Genero" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZYu-Du-RlC">
+                                            <rect key="frame" x="104" y="61.5" width="56" height="20.5"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="fZR-aZ-oTC">
+                                            <rect key="frame" x="16" y="10" width="72" height="72"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="72" id="DXK-7t-F3d"/>
+                                                <constraint firstAttribute="height" constant="72" id="p75-nO-1oD"/>
+                                            </constraints>
+                                        </imageView>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="2l5-MW-bbi" firstAttribute="top" secondItem="fZR-aZ-oTC" secondAttribute="top" id="ANx-1C-MVR"/>
+                                        <constraint firstItem="fZR-aZ-oTC" firstAttribute="leading" secondItem="jLL-LN-3ki" secondAttribute="leading" constant="16" id="M8y-zq-vOG"/>
+                                        <constraint firstItem="ZYu-Du-RlC" firstAttribute="leading" secondItem="2l5-MW-bbi" secondAttribute="leading" id="Q5U-NI-AMh"/>
+                                        <constraint firstItem="ZYu-Du-RlC" firstAttribute="bottom" secondItem="fZR-aZ-oTC" secondAttribute="bottom" id="Ykm-aO-Cb3"/>
+                                        <constraint firstItem="2l5-MW-bbi" firstAttribute="leading" secondItem="fZR-aZ-oTC" secondAttribute="trailing" constant="16" id="gE6-70-EHZ"/>
+                                        <constraint firstItem="fZR-aZ-oTC" firstAttribute="top" secondItem="jLL-LN-3ki" secondAttribute="top" constant="10" id="hhE-oi-a5D"/>
+                                        <constraint firstAttribute="bottom" secondItem="fZR-aZ-oTC" secondAttribute="bottom" constant="10" id="sJi-ux-s09"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="ivCharacter" destination="fZR-aZ-oTC" id="CNU-27-OgI"/>
+                                    <outlet property="lbGender" destination="ZYu-Du-RlC" id="ulB-ZU-Vin"/>
+                                    <outlet property="lbName" destination="2l5-MW-bbi" id="WTN-HN-zG3"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="LTi-Pf-oOE" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-178.40000000000001" y="-28.335832083958024"/>
+        </scene>
+    </scenes>
+</document>
