@@ -115,12 +115,18 @@ struct _R: Rswift.Validatable {
       typealias InitialController = ForgotPasswordViewController
       
       let bundle = R.hostingBundle
+      let confirm = StoryboardViewControllerResource<ForgotPasswordConfirmViewController>(identifier: "confirm")
       let name = "ForgotPassword"
+      
+      func confirm(_: Void = ()) -> ForgotPasswordConfirmViewController? {
+        return UIKit.UIStoryboard(resource: self).instantiateViewController(withResource: confirm)
+      }
       
       static func validate() throws {
         if UIKit.UIImage(named: "confirm", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'confirm' is used in storyboard 'ForgotPassword', but couldn't be loaded.") }
         if #available(iOS 11.0, *) {
         }
+        if _R.storyboard.forgotPassword().confirm() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'confirm' could not be loaded from storyboard 'ForgotPassword' as 'ForgotPasswordConfirmViewController'.") }
       }
       
       fileprivate init() {}

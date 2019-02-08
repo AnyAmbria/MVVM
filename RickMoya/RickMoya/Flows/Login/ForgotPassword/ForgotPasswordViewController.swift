@@ -18,11 +18,11 @@ class ForgotPasswordViewController: UIViewController {
     let disposeBag = DisposeBag()
     
     static func instantiate(with viewModel: ForgotPasswordViewModelContract) -> ForgotPasswordViewController{
-        //let viewController = R.storyboard.forgotPassword.
+        let viewController = R.storyboard.forgotPassword.instantiateInitialViewController()!
         
-        let storyboard = UIStoryboard(name: "ForgotPassword", bundle: nil)
-        let viewController = storyboard.instantiateInitialViewController() as! ForgotPasswordViewController
-        
+//        let storyboard = UIStoryboard(name: "ForgotPassword", bundle: nil)
+//        let viewController = storyboard.instantiateInitialViewController() as! ForgotPasswordViewController
+//        
         viewController.viewModel = viewModel
         
         return viewController
@@ -37,14 +37,16 @@ class ForgotPasswordViewController: UIViewController {
     }
     
     private func bindProperties(){
-        tfEmail.rx.value.map{ $0?.count ?? 0 > 0}.bind(to: btSend.rx.isEnabled).disposed(by: disposeBag)
-        tfEmail.rx.controlEvent(.editingDidEndOnExit).bind{
+        tfEmail.rx.controlEvent(.editingDidEndOnExit).bind {
+            self.sendForgotPassword()
+            }.disposed(by: disposeBag)
+        
+       tfEmail.rx.value.map { $0?.count ?? 0 > 0 }.bind(to: btSend.rx.isEnabled).disposed(by: disposeBag)
+        
+        btSend.rx.tap.bind {
             self.sendForgotPassword()
         }.disposed(by: disposeBag)
         
-        btSend.rx.tap.bind{
-            self.sendForgotPassword()
-        }.disposed(by: disposeBag)
     }
     
     private func sendForgotPassword(){

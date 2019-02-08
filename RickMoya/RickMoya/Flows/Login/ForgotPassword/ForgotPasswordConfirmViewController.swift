@@ -16,12 +16,12 @@ class ForgotPasswordConfirmViewController: UIViewController {
     @IBOutlet weak var lbMessage: UILabel!
     let disposeBag = DisposeBag()
     
-    static func instantiate(with viewModel: ForgotPasswordViewModelContract) -> ForgotPasswordViewController{
-//        let viewController = R.storyboard.forgotPassword.forgotPasswordConfirmViewController()!
+    static func instantiate(with viewModel: ForgotPasswordViewModelContract) -> ForgotPasswordConfirmViewController{
+        let viewController = R.storyboard.forgotPassword.confirm()!
         
-        let storyboard = UIStoryboard(name: "ForgotPassword", bundle: nil)
-        let viewController = storyboard.instantiateInitialViewController() as! ForgotPasswordViewController
-        
+//        let storyboard = UIStoryboard(name: "ForgotPassword", bundle: nil)
+//        let viewController = storyboard.instantiateInitialViewController() as! ForgotPasswordViewController
+      
         viewController.viewModel = viewModel
 
         return viewController
@@ -37,9 +37,9 @@ class ForgotPasswordConfirmViewController: UIViewController {
     }
     
     func bindProperties() {
+        
         btReturnLogin.rx.tap.bind {
             self.viewModel.returnToLogin()
             }.disposed(by: disposeBag)
     }
-
 }

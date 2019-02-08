@@ -23,7 +23,7 @@ class ForgotPasswordViewModel: ForgotPasswordViewModelContract, Stepper {
     }
     
     func returnToLogin() {
-        self.step.accept(LoginStep.forgotPasswordComplete)
+        self.step.accept(LoginStep.loginComplete)
     }
     
 }

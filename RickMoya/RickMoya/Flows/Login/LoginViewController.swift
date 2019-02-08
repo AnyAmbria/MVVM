@@ -20,8 +20,10 @@ class LoginViewController: UIViewController {
     let disposeBag = DisposeBag()
     
     static func instantiate(with viewModel: LoginViewModelContract) -> LoginViewController {
-        let storyboard = UIStoryboard(name: "Login", bundle: nil)
-        let viewController = storyboard.instantiateInitialViewController() as! LoginViewController
+        
+        let viewController = R.storyboard.login.instantiateInitialViewController()!
+//        let storyboard = UIStoryboard(name: "Login", bundle: nil)
+//        let viewController = storyboard.instantiateInitialViewController() as! LoginViewController
         viewController.viewModel = viewModel
         
         return viewController
@@ -49,8 +51,16 @@ class LoginViewController: UIViewController {
         let buttonValidation = Observable.combineLatest(usernameValidation, passwordValidation) {
             return $0 && $1
         }
-        
+        print("dd",buttonValidation)
         buttonValidation.bind(to: btLogin.rx.isEnabled).disposed(by: disposeBag)
+        buttonValidation.bind { enabled in
+            if enabled {
+                self.btLogin.backgroundColor =  UIColor(red: 6/255, green: 121/255, blue: 150/255, alpha: 1.0)
+                return
+            } else {
+                self.btLogin.backgroundColor =  UIColor(red: 6/255, green: 121/255, blue: 150/255, alpha: 0.3)
+            }
+        }.disposed(by: disposeBag)
         
         btLogin.rx.tap.bind {
             self.doLogin()
